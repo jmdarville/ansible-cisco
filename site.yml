@@ -1,0 +1,6 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+
+- import_playbook: router.yml
