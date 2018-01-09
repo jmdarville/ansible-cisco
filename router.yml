@@ -1,0 +1,30 @@
+---
+- hosts: all
+  gather_facts: no
+  connection: local
+
+- import_playbook: router.yml
+
+root@NetworkAutomation-1:~/playbooks/cisco_01# cat router.yml
+---
+- name: Core Router Configuration
+  hosts: core_routers
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+  - name: Set Hostname
+    ios_config:
+      provider: "{{ provider }}"
+      lines: hostname "{{ inventory_hostname }}"
+
+  - name: Configure Interface
+    ios_config:
+      provider: "{{ provider }}"
+      lines:
+      - description: "{{ item.desc }}"
+      - ip_add: "{{ item.ip }} {{item.mask}}"
+      parents: interface {{ item.key }}
+    with_items: "{{ loopback }}"
+    tags: loopback
