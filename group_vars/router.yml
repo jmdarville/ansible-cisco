@@ -1,0 +1,6 @@
+---
+loopback:
+  - name: "Loopback0"
+    desc: "{{ lo0.desc }}"
+    ip: "{{ lo0.ip }}"
+    mask: 255.255.255.240
