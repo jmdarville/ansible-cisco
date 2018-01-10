@@ -74,7 +74,7 @@ This is the topology used.
 
 These are the basic configs that create a user and allow remote access through ssh. The username and passwords are published below as this is just an example using GNS3. Obviously not a production ready scenario...
 
-######jupiter - basic config
+###### jupiter - basic config
 
     enable
     conf t
@@ -97,7 +97,7 @@ These are the basic configs that create a user and allow remote access through s
     no shut
     end
 
-######saturn - basic config
+###### saturn - basic config
 
     enable
     conf t
@@ -120,7 +120,7 @@ These are the basic configs that create a user and allow remote access through s
     no shut
     end
 
-######mars - basic config
+###### mars - basic config
 
     enable
     conf t
@@ -143,7 +143,7 @@ These are the basic configs that create a user and allow remote access through s
     no shut
     end
 
-######neptune - basic config
+###### neptune - basic config
 
     enable 
     conf t
@@ -165,8 +165,4 @@ These are the basic configs that create a user and allow remote access through s
     duplex full
     no shut
     end
-
-
-
-
 
