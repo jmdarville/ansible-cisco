@@ -166,7 +166,9 @@ These are the basic configs that create a user and allow remote access through s
 
 ## Errors and Troubleshooting:
 
-Inclusion of group_vars/all.yml is fine, but group_vars/router.yml is not. Resulting error is 
+Ahh, where would we be without troubleshooting. (Answer: Back in the stone age.)
+
+### Inclusion of group_vars/all.yml is fine, but group_vars/router.yml is not. Resulting error is 
 
     fatal: [jupiter]: FAILED! => {
        "msg": "'loopback' is undefined"
@@ -174,4 +176,19 @@ Inclusion of group_vars/all.yml is fine, but group_vars/router.yml is not. Resul
     fatal: [saturn]: FAILED! => {
        "msg": "'loopback' is undefined"
     }
+
+### SSH Algorithm mismatch
+
+When attempting to ssh into a router, you see the following error
+
+    Unable to negotiate with 192.168.100.254 port 22: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
+    
+This is a legacy issue with OpenSSH. The diffie-hellman algorithm is not enabled by default in OpenSSH 7.0 and greater.  This page has more details. 
+
+[OpenSSH Legacy Options](http://www.openssh.com/legacy.html)
+
+As a workaround for this example, add the following to *.ssh/config* on the control-node. This will allow ssh access for the whole /24.
+
+    Host 192.168.100.*
+	    KexAlgorithms +diffie-hellman-group1-sha1
 
