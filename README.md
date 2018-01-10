@@ -92,6 +92,7 @@ These are the basic configs that create a user and allow remote access through s
     duplex full
     no shut
     end
+    
 
 ###### saturn - basic config
 
@@ -115,6 +116,7 @@ These are the basic configs that create a user and allow remote access through s
     duplex full
     no shut
     end
+    
 
 ###### mars - basic config
 
@@ -138,6 +140,7 @@ These are the basic configs that create a user and allow remote access through s
     duplex full
     no shut
     end
+    
 
 ###### neptune - basic config
 
@@ -161,8 +164,7 @@ These are the basic configs that create a user and allow remote access through s
     duplex full
     no shut
     end
-
-
+    
 
 ## Errors and Troubleshooting:
 
