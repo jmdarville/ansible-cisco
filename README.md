@@ -192,8 +192,17 @@ As a workaround for this example, add the following to *.ssh/config* on the cont
     Host 192.168.100.*
 	    KexAlgorithms +diffie-hellman-group1-sha1
 
+
 ### Timeout trying to send command
 
+When trying to save a running-config to startup-config, it times outs
+
     fatal: [mars]: FAILED! => {"changed": false, "msg": "timeout trying to send command: copy running-config startup-config", "rc": 1}
+    
+This is probably caused by IOS expected a prompt from the user and none is given. A nice solution is to use a handler.
+
+[How to save IOS configurations with Ansible](https://networklore.com/how-to-save-ios_config/)
+
+
  
  
