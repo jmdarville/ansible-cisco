@@ -68,6 +68,7 @@ Inclusion of group_vars/all.yml is fine, but group_vars/router.yml is not. Resul
 
 This is the topology used.
 
+![Topology](https://github.com/jmdarville/ansible-cisco/blob/master/topology.png)
 
 
 ## Basic Router Configs
