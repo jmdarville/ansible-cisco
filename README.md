@@ -2,6 +2,16 @@
 
 Learning network automation with Ansible and GNS3.  (This is a work in progress)
 
+## Contents
+
+* [Aims](#aims)
+* [Environment](#environment)
+* [Ansible](#ansible)
+* [Topology](#topology)
+* [Basic Router Configs](#basic-router-configs)
+* [Errors and Troubleshooting](#errors-and-troubleshooting)
+
+
 ## Aims
 
 Using an Ansible playbook to:
@@ -17,17 +27,6 @@ Using an Ansible playbook to:
 * ansible-2.4.2.0
 * python version = 2.7.12
 * cisco ios 12.2(33)SRE9 - You need to provide your own IOS.
-
-
-### Note about the router config
-
-* Enable password must be set
-* A user and password must be created
-* SSH must be enabled
-* ip domain must be specified
-* SSHv2 must be configured
-
-See below for a basic config for each router in the topology
 
 
 ## Ansible 
@@ -63,6 +62,13 @@ The GigabitEthernet1/0 interfaces on each router will be the backbone network.
 ## Basic Router Configs
 
 These are the basic configs that create a user and allow remote access through ssh. The username and passwords are published below as this is just an example using GNS3. Obviously not a production ready scenario...
+
+* Enable password must be set
+* A user and password must be created
+* SSH must be enabled
+* ip domain must be specified
+* SSHv2 must be configured
+
 
 ###### jupiter - basic config
 
@@ -158,7 +164,7 @@ These are the basic configs that create a user and allow remote access through s
 
 
 
-## Errors:
+## Errors and Troubleshooting:
 
 Inclusion of group_vars/all.yml is fine, but group_vars/router.yml is not. Resulting error is 
 
