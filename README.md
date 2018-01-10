@@ -16,7 +16,7 @@ Using an Ansible playbook to:
 * GNS3 - 2.1.0
 * ansible-2.4.2.0
 * python version = 2.7.12
-* cisco ios 12.2(33)SRE9
+* cisco ios 12.2(33)SRE9 - You need to provide your own IOS.
 
 
 ### Note about the router config
