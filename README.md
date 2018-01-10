@@ -41,6 +41,8 @@ SSHv2 must be configured
     [core_routers]
     jupiter ansible_host=192.168.100.254 ansible_hostname=jupiter
     saturn ansible_host=192.168.100.253 ansible_hostname=saturn
+    mars ansible_host=192.168.100.252
+    neptune ansible_host=192.168.100.251
   
 Key checking must be disabled  
 
