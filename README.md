@@ -192,3 +192,8 @@ As a workaround for this example, add the following to *.ssh/config* on the cont
     Host 192.168.100.*
 	    KexAlgorithms +diffie-hellman-group1-sha1
 
+### Timeout trying to send command
+
+    fatal: [mars]: FAILED! => {"changed": false, "msg": "timeout trying to send command: copy running-config startup-config", "rc": 1}
+ 
+ 
