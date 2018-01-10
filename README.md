@@ -42,7 +42,13 @@ SSHv2 must be configured
     jupiter ansible_host=192.168.100.254 ansible_hostname=jupiter
     saturn ansible_host=192.168.100.253 ansible_hostname=saturn
   
-key checking must be disabled  
+Key checking must be disabled  
+
+/etc/ansible/ansible.cfg
+
+    # uncomment this to disable SSH key host checking
+    host_key_checking = False
+
 
 ## Errors:
 
