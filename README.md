@@ -176,6 +176,9 @@ Ahh, where would we be without troubleshooting. (Answer: Back in the stone age.)
     fatal: [saturn]: FAILED! => {
        "msg": "'loopback' is undefined"
     }
+    
+Apparently this is a breaking change in Ansible 2.4. This playbook should work with 2.3, but I haven't checked.
+
 
 ### SSH Algorithm mismatch
 
