@@ -1,4 +1,4 @@
 ---
 lo0:
-  desc: "loopback 0"
+  description: "loopback 0"
   ip: 10.0.0.3
