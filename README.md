@@ -200,7 +200,17 @@ in the ios_config module
     line 532, in <module>\n    main()\n  File \"/tmp/ansible_juGox5/ansible_module_ios_config.py\", line 437, in main\n    candidate, want_banners = get_candidate(module)\n  File \"/tmp/ansible_juGox5/ansible_module_ios_config.py\", line 364, in
     get_candidate\n    candidate.add(module.params['lines'], parents=parents)\n  File \"/tmp/ansible_juGox5/ansible_modlib.zip
     /ansible/module_utils/netcfg.py\", line 405, in add\nAttributeError: 'dict' object has no attribute 'rjust'\n", "module_stdout": "", "msg": "MODULE FAILURE", "rc": 0}
-    
+
+
+This was caused by syntax (human) error on lines 11 and 12 of roles/global/tasks/mail.yml. The colons and quotation marks were causing the yaml to be misinterpreted.
+
+    - description: "{{ item.description }}"
+    - ip address: "{{ item.ip }} {{item.mask}}"
+
+Should be
+
+    - description {{ item.description }}
+    - ip address {{ item.ip }} {{item.mask}}
 
 
 
