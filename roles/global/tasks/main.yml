@@ -1,9 +1,10 @@
 ---
 - name: IOS | Set Hostname
-  ios_config:
+  ios_system:
     provider: "{{ provider }}"
-    lines: hostname "{{ inventory_hostname }}"
-    
+    hostname: "{{ inventory_hostname }}"
+
+
 - name: IOS | Configure Loopback Interfaces
   ios_config:
     provider: "{{ provider }}" # Read from group_vars/all.yml
