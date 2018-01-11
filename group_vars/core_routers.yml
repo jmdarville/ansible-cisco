@@ -1,0 +1,12 @@
+---
+loopback:
+  - name: "Loopback0"
+    description: "{{ lo0.desc }}"
+    ip: "{{ lo0.ip }}"
+    mask: 255.255.255.240
+    
+#management:
+#  - name: "FastEthernet0/0"
+#    desc: "{{ fa0/0.desc }}"
+#    ip: "{{ fa0/0.ip }}"
+#    mask: 255.255.255.0
