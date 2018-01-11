@@ -23,30 +23,34 @@ Using an Ansible playbook to:
 
 ## Environment 
 
-* GNS3 - 2.1.0
-* ansible-2.4.2.0
-* python version = 2.7.12
 * cisco ios 12.2(33)SRE9 - You need to provide your own IOS.
+* GNS3 - 2.1.0
+* network-automation appliance with:
+  * ansible-2.4.2.0
+  * python version = 2.7.12
 
 
 ## Ansible 
 
-/etc/ansible/hosts
+*/etc/ansible/hosts*
 
     [core_routers]
     jupiter ansible_host=192.168.100.254 ansible_hostname=jupiter
     saturn ansible_host=192.168.100.253 ansible_hostname=saturn
     mars ansible_host=192.168.100.252
     neptune ansible_host=192.168.100.251
+    
+The host definititions above do not persist when you shut down GNS3. You can either build your own image based on this or add these definitions each time.
+
   
 Key checking must be disabled  
 
-/etc/ansible/ansible.cfg
+*/etc/ansible/ansible.cfg*
 
     # uncomment this to disable SSH key host checking
     host_key_checking = False
 
-You might also need to add this to the .ssh/config file
+You might also need to add this to the *.ssh/config* file on the control node
 
     StrictHostKeyChecking no
 
@@ -72,6 +76,10 @@ These are the basic configs that create a user and allow remote access through s
 * SSH must be enabled
 * ip domain must be specified
 * SSHv2 must be configured
+
+#### A word of warning
+
+The ssh keys on the routers do not persist after exiting GNS3 so you will have to regenerate them.
 
 
 ###### jupiter - basic config
@@ -188,7 +196,7 @@ Ahh, where would we be without troubleshooting. (Answer: Back in the stone age.)
     }
     
 Apparently this is a breaking change in Ansible 2.4. This playbook should work with 2.3, but I haven't checked.
-Adding a roles directory and defining the common configs in global/main.yml seemed to fix this.
+Adding a roles directory and defining the common configs in *roles/global/tasks/main.yml* seemed to fix this.
 
 But that gave way to 
 
@@ -202,7 +210,7 @@ in the ios_config module
     /ansible/module_utils/netcfg.py\", line 405, in add\nAttributeError: 'dict' object has no attribute 'rjust'\n", "module_stdout": "", "msg": "MODULE FAILURE", "rc": 0}
 
 
-This was caused by syntax (human) error on lines 11 and 12 of roles/global/tasks/mail.yml. The colons and quotation marks were causing the yaml to be misinterpreted.
+This was caused by syntax (human) error on lines 11 and 12 of *roles/global/tasks/main.yml*. The colons and quotation marks were causing the yaml to be misinterpreted.
 
     - description: "{{ item.description }}"
     - ip address: "{{ item.ip }} {{item.mask}}"
