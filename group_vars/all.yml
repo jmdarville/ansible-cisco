@@ -4,3 +4,10 @@ provider:
   username: john
   password: ****
   authorize: yes
+  
+loopback:
+  - name: "Loopback0"
+    description: "{{ lo0.description }}"
+    ip: "{{ lo0.ip }}"
+    mask: 255.255.255.240
+  
