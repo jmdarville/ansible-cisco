@@ -46,6 +46,10 @@ Key checking must be disabled
     # uncomment this to disable SSH key host checking
     host_key_checking = False
 
+You might also need to add this to the .ssh/config file
+
+    StrictHostKeyChecking no
+
 
 ## Topology
 
