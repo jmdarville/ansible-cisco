@@ -8,9 +8,9 @@
   ios_config:
     provider: "{{ provider }}" # Read from group_vars/all.yml
     lines:
-    - description: "{{ item.description }}"
-    - ip address: "{{ item.ip }} {{item.mask}}"
+    - description {{ item.description }}
+    - ip address {{ item.ip }} {{item.mask}}
     parents: "interface {{ item.name }}"
-  with_items: "{{ loopback }}" # Should be read from group_vars/router.yml
+  with_items: "{{ loopback }}" # Should be read from group_vars/core_routers.yml
   tags: loopback
-    
+  
