@@ -188,6 +188,21 @@ Ahh, where would we be without troubleshooting. (Answer: Back in the stone age.)
     }
     
 Apparently this is a breaking change in Ansible 2.4. This playbook should work with 2.3, but I haven't checked.
+Adding a roles directory and defining the common configs in global/main.yml seemed to fix this.
+
+But that gave way to 
+
+### AttributeError: 'dict' object has no attribute 'rjust'
+in the ios_config module
+
+    failed: [jupiter] (item={u'ip': u'10.0.0.1', u'mask': u'255.255.255.240', u'name': u'Loopback0', u'description': u'loopback
+    0'}) => {"changed": false, "item": {"description": "loopback 0", "ip": "10.0.0.1", "mask": "255.255.255.240", "name": "Loopback0"}, "module_stderr": "Traceback (most recent call last):\n  File \"/tmp/ansible_juGox5/ansible_module_ios_config.py\",
+    line 532, in <module>\n    main()\n  File \"/tmp/ansible_juGox5/ansible_module_ios_config.py\", line 437, in main\n    candidate, want_banners = get_candidate(module)\n  File \"/tmp/ansible_juGox5/ansible_module_ios_config.py\", line 364, in
+    get_candidate\n    candidate.add(module.params['lines'], parents=parents)\n  File \"/tmp/ansible_juGox5/ansible_modlib.zip
+    /ansible/module_utils/netcfg.py\", line 405, in add\nAttributeError: 'dict' object has no attribute 'rjust'\n", "module_stdout": "", "msg": "MODULE FAILURE", "rc": 0}
+    
+
+
 
 
 ### SSH Algorithm mismatch
