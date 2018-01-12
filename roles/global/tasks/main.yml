@@ -21,5 +21,12 @@
     - description {{ item.description }}
     - ip address {{ item.ip }} {{ item.mask }}
     parents: "interface {{ item.name }}"
-  with_items: "{{ backbone1}}"
+  with_items: "{{ backbone1 }}"
   tags: backbone
+  
+- name: IOS | Bring backbone up
+  ios_interface:
+    provider: "{{ provider }}"
+    name: GigabitEthernet1/0
+    #duplex: full
+    enabled: True  
