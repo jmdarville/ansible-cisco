@@ -10,3 +10,9 @@ loopback:
 #    desc: "{{ fa0/0.desc }}"
 #    ip: "{{ fa0/0.ip }}"
 #    mask: 255.255.255.0
+
+backbone1:
+  - name: "GigabitEthernet1/0"
+    description: "{{ g1_0.description }}"
+    ip: "{{ g1_0.ip }}"
+    mask: "{{ g1_0.mask }}"
