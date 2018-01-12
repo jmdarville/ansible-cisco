@@ -4,7 +4,6 @@
     provider: "{{ provider }}"
     hostname: "{{ inventory_hostname }}"
 
-
 - name: IOS | Configure Loopback Interfaces
   ios_config:
     provider: "{{ provider }}" # Read from group_vars/all.yml
@@ -15,3 +14,12 @@
   with_items: "{{ loopback }}" # Should be read from group_vars/core_routers.yml
   tags: loopback
   
+- name: IOS | Configure Backbone Interfaces
+  ios_config:
+    provider: "{{ provider }}" # Read from group_vars/all.yml
+    lines:
+    - description {{ item.description }}
+    - ip address {{ item.ip }} {{ item.mask }}
+    parents: "interface {{ item.name }}"
+  with_items: "{{ backbone1}}"
+  tags: backbone
