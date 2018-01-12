@@ -2,3 +2,8 @@
 lo0:
   description: "loopback 0"
   ip: 10.0.0.4
+
+g1_0:
+  description: "Backbone 1"
+  ip: 172.16.16.4
+  mask: 255.255.255.192
