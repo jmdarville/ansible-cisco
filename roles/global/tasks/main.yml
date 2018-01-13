@@ -13,7 +13,24 @@
     parents: "interface {{ item.name }}"
   with_items: "{{ loopback }}" # Should be read from group_vars/core_routers.yml
   tags: loopback
-  
+
+- name: IOS | Configure Manangement LAN
+  ios_config:
+    provider: "{{ provider }}"
+    lines:
+    - description {{ item.description }}
+    - ip address {{ item.ip }} {{ item.mask }}
+    parents: "interface {{ item.name }}"
+  with_items: "{{ management }}"
+  tags: managementlan
+
+- name: IOS | Bring Management Interfaces up
+  ios_interface:
+    provider: "{{ provider }}"
+    name: FastEthernet0/0
+    #duplex: full
+    enabled: True
+
 - name: IOS | Configure Backbone Interfaces
   ios_config:
     provider: "{{ provider }}" # Read from group_vars/all.yml
