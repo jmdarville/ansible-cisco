@@ -1,6 +1,14 @@
 # ansible-cisco
 
 Learning network automation with Ansible and GNS3.  (This is a work in progress)
+This is a simple Ansible playbook that automates the configuration of loopback and backbone interfaces on Cisco routers running IOS 12.2 in a GNS3 environment. 
+
+To run the playbook, do 
+
+    ansible-playbook ansible-cisco/site.yml
+    
+ depending on where you have saved the playbook of course.   
+
 
 ## Contents
 
