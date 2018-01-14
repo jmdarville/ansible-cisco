@@ -1,0 +1,7 @@
+# Ping each host to confirm connectivity
+- name: IOS | Ping - Is layer3 connectivity OK?
+  ios_ping:
+    provider: "{{ provider }}"
+    dest: "{{ item.ip }}"
+  with_items: "{{ backbone1 }}"
+  tags: ping
