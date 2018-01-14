@@ -12,3 +12,5 @@
 
   roles:
     - global
+    - ospf
+    - ping
