@@ -257,6 +257,18 @@ This is probably caused by IOS expected a prompt from the user and none is given
 
 [How to save IOS configurations with Ansible](https://networklore.com/how-to-save-ios_config/)
 
+Or, create a role with the sole function of saving a configuration.
+
+    - name: IOS | Save Running Config to Start Up when modified
+      ios_config:
+        provider: "{{ provider }}"
+        save_when: modified
+
+
+
+
+
+
 
  
  
