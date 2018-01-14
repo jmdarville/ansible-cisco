@@ -1,0 +1,5 @@
+---
+- name: IOS | Save Running Config to Start Up when modified
+  ios_config:
+    provider: "{{ provider }}"
+    save_when: modified
