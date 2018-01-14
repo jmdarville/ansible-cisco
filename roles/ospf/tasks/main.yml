@@ -1,0 +1,14 @@
+---
+# Enable OSPF on backbone links
+- name: IOS | Enable OSPF Area 0
+  ios_config:
+    provider: "{{ provider }}"
+    lines:
+    - network 172.16.16.0 0.0.0.63 area 0.0.0.0
+    - network 192.168.100.0 0.0.0.255 area 0.0.0.0
+    - log-adjacency-changes
+    - router-id {{ item.ip }}
+    - passive-interface Loopback0
+    parents: "router ospf 1"
+  with_items: "{{ loopback }}"
+  tags: backbone-ospf
