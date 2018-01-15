@@ -1,10 +1,4 @@
 ---
-#- hosts: all
-#  gather_facts: yes
-#  connection: local
-#  
-#- import_playbook: router.yml
-
 - name: Apply Global Configs # Needs a better name
   hosts: all
   gather_facts: yes
